@@ -1,0 +1,7 @@
+{
+  "title": "Claude bridge (Arsten)",
+  "url": "https://arsten2026-cell.github.io/trimble-connect-claude-bridge/index.html",
+  "icon": "https://arsten2026-cell.github.io/trimble-connect-claude-bridge/icon.svg",
+  "description": "Lets Claude (via the local Arsten MCP server) select, hide, isolate and colour objects in this 3D view.",
+  "extensionType": ["3dviewer"]
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude bridge</title>
+<style>
+  :root { --bg:#f7f5f0; --ink:#1f1f1f; --muted:#6b6b6b; --line:#d9d5cc; --accent:#E37424; --ok:#2f7d32; --bad:#b3261e; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:14px; background:var(--bg); color:var(--ink); font:13px/1.45 Ubuntu, "Segoe UI", system-ui, sans-serif; }
+  h1 { font-size:15px; margin:0 0 10px; font-weight:600; }
+  .row { display:flex; align-items:center; gap:8px; margin:6px 0; }
+  .dot { width:10px; height:10px; border-radius:50%; background:var(--line); flex:none; }
+  .dot.ok { background:var(--ok); } .dot.bad { background:var(--bad); } .dot.wait { background:var(--accent); }
+  button { font:inherit; padding:7px 12px; border:1px solid var(--ink); background:var(--ink); color:#fff; cursor:pointer; border-radius:0; }
+  button.secondary { background:transparent; color:var(--ink); border-color:var(--line); }
+  button:disabled { opacity:.5; cursor:default; }
+  .muted { color:var(--muted); font-size:12px; }
+  #log { margin-top:12px; border-top:1px solid var(--line); padding-top:8px; font:11px/1.4 "Ubuntu Mono", Consolas, monospace; color:var(--muted); max-height:260px; overflow:auto; white-space:pre-wrap; }
+  code { font-family:"Ubuntu Mono", Consolas, monospace; }
+</style>
+</head>
+<body>
+<h1>Claude bridge</h1>
+<div class="row"><span id="dConnect" class="dot wait"></span><span id="tConnect">Connecting to Trimble Connect…</span></div>
+<div class="row"><span id="dBridge" class="dot"></span><span id="tBridge">Claude not connected</span></div>
+<div class="row" style="margin-top:12px">
+  <button id="btnConnect">Connect Claude</button>
+  <button id="btnClear" class="secondary" title="Clear log">Clear log</button>
+</div>
+<p class="muted">Opens a small window served by the Arsten MCP server on this PC
+(<code>127.0.0.1:47800</code>). Keep it open while Claude works. The MCP server must be running, which it is
+whenever Claude Code has it loaded.</p>
+<div id="log"></div>
+<script src="https://cdn.jsdelivr.net/npm/trimble-connect-workspace-api@0.3.38/dist/iife/trimbleconnect.workspace.api.js" integrity="sha384-lFiNt/56q6HnUNbuy0WHO3NP6BkQjY4EH8+5eELYVfnhkB42snRTmSa3UOAlX9gg" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</body>
+</html>
