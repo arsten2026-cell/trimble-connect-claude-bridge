@@ -137,6 +137,11 @@
   });
   $("btnClear").addEventListener("click", () => { logEl.textContent = ""; });
 
+  if (window.parent === window) {
+    setStatus("Connect", "bad", "Not inside Trimble Connect. Add this extension to a project and open it from the 3D viewer side panel.");
+    $("btnConnect").disabled = true;
+    return;
+  }
   TrimbleConnectWorkspace.connect(window.parent, onEvent, 30000).then(async (a) => {
     api = a;
     let where = "Trimble Connect";
